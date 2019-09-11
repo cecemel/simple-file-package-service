@@ -47,7 +47,8 @@ services:
       TARGET_FOLDER: "/data/files" # [optional: if you need your packages to be stored elsewhere]
       DATA_FOLDER: "/data/files/" # [optional]
       PACKAGE_GRAPH: 'http://mu.semte.ch/graphs/simple-file-package-service' # [optional: graph were jobs are stored]
-      HOURS_DELIVERING_TIMEOUT: '3' # [optional: when do you consider a job hanging]
+      HOURS_DELIVERING_TIMEOUT: '3' # [optional: when do you consider a job hanging?]
+      PACKAGE_CRON_PATTERN: '*/10 * * * * *' # [optional]
     links:
     - database:database # [optional]
     volumes:
