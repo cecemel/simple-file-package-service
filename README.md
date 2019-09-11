@@ -29,7 +29,7 @@ export default fileQuery;
 ```
 curl -d '{"whatever":"json", "data":"you need"}' -H "Content-Type: application/json" -X POST http://localhost/simple-file-package-jobs
 ```
-This will create a job that will be picked up asynchronously.
+This will create a job that will be picked up in an asynchronous way.
 
 ### trigger packaging
 If you want to trigger the packaging pipeline manually.
