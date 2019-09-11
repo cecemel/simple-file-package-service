@@ -12,7 +12,7 @@ Query is configured in a javascript file. It should comply to the following stru
 import { querySudo as query } from '@lblod/mu-auth-sudo';
 import { uuid } from 'mu';
 
-const fileQuery = async function( jobsParamsProvidedAsQueryParams ){
+const fileQuery = async function( jobsParamsProvidedAsJsonPostBody ){
   //Get some files valid for your system. You can do any query.
   let result = await query(`
         SELECT ?file ?filename WHERE {
