@@ -9,7 +9,7 @@ import fileQuery from './file-query';
 const DATA_FOLDER = process.env.DATA_FOLDER || '/data/files/';
 const TARGET_FOLDER = process.env.TARGET_FOLDER || '/data/files/';
 const PACKAGE_GRAPH = process.env.PACKAGE_GRAPH || 'http://mu.semte.ch/graphs/simple-file-package-service';
-const HOURS_DELIVERING_TIMEOUT =  process.env.HOURS_DELIVERING_TIMEOUT || 3;
+const HOURS_DELIVERING_TIMEOUT =  parseInt(process.env.HOURS_DELIVERING_TIMEOUT || 3);
 const PREFIX = "http://mu.semte.ch/vocabularies/ext/simple-file-package-service/";
 const JOBURIBASE = `${PREFIX}job/`;
 
