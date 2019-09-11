@@ -1,0 +1,21 @@
+{
+  "name": "automatic-submission-service",
+  "version": "0.2.0",
+  "description": "Microservice providing an API for external parties to  process inzendingen voor toezicht.",
+  "dependencies": {
+    "archiver": "^2.1.1",
+    "event-stream": "3.3.4",
+    "fs-extra": "^5.0.0",
+    "cron": "^1.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lblod/automatic-submission-service.git"
+  },
+  "author": "redpencil.io",
+  "license": "MIT"
+}
