@@ -1,5 +1,5 @@
 import { uuid, sparqlEscapeString, sparqlEscapeDateTime, sparqlEscapeUri } from 'mu';
-import { querySudo as query, updateSudo as update } from './auth-sudo';
+import { querySudo as query, updateSudo as update } from '@lblod/mu-auth-sudo';
 import path from 'path';
 import fs from 'fs-extra';
 import archiver from 'archiver';
@@ -124,7 +124,7 @@ const getJobsByStatus = async function(status){
 };
 
 const createJob = async function (jobUri, jobUuid, jobParams) {
-  await query(`
+  await update(`
     PREFIX    pck: <${PREFIX}>
     PREFIX    mu: <http://mu.semte.ch/vocabularies/core/>
     INSERT DATA {
@@ -141,7 +141,7 @@ const createJob = async function (jobUri, jobUuid, jobParams) {
 };
 
 const addFileUri = async function (jobUri, zipFileUri){
-  await query(`
+  await update(`
     PREFIX    pck: <${PREFIX}>
     PREFIX    mu: <http://mu.semte.ch/vocabularies/core/>
     INSERT DATA{
@@ -174,7 +174,7 @@ const updateJobStatus = async function (jobUri, status){
          ${sparqlEscapeUri(jobUri)} pck:modified ?modified.
       }
     }`;
-  await query(q);
+  await update(q);
 };
 
 const cleanHangingJobs = async function (){

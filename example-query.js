@@ -1,4 +1,5 @@
-import { querySudo as query, updateSudo as update } from './auth-sudo';
+import { querySudo as query } from '@lblod/mu-auth-sudo';
+
 import { uuid } from 'mu';
 
 const fileQuery = async function( jobsParams ){
