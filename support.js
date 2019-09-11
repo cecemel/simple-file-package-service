@@ -33,10 +33,13 @@ const runPipeline = async function(){
   try {
     await cleanHangingJobs();
     let jobs = await getJobsByStatus(SCHEDULED);
+    // lock them asap
+    for(let j of jobs){
+      await updateJobStatus(j.uri.value, PACKAGING);
+    }
+
     for(let j of jobs){
       try{
-
-        await updateJobStatus(j.uri.value, PACKAGING);
         let result = await fileQuery(JSON.parse(j.params.value));
 
         if(result.files.length === 0){

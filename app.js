@@ -9,7 +9,7 @@ const cronFrequency = process.env.PACKAGE_CRON_PATTERN || '*/10 * * * * *';
 // To make our live easy, let's use application/json
 app.use(bodyParser.json());
 
-createCronJob(); 
+createCronJob();
 function createCronJob() {
   return new CronJob(cronFrequency, function() {
     console.log(`Pipeline triggered by cron job at ${new Date().toISOString()}`);
