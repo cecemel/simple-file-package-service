@@ -35,6 +35,7 @@ const runPipeline = async function(){
     let jobs = await getJobsByStatus(SCHEDULED);
     for(let j of jobs){
       try{
+
         await updateJobStatus(j.uri.value, PACKAGING);
         let result = await fileQuery(JSON.parse(j.params.value));
 
@@ -177,12 +178,12 @@ const cleanHangingJobs = async function (){
   let jobs = await getJobsByStatus(PACKAGING);
   let hangingJobs = jobs.filter(filterDeliveringTimeout);
   for(let j of hangingJobs){
-    await updateJobStatus(j.uri, FAILED);
+    await updateJobStatus(j.uri.value, FAILED);
   }
 };
 
 const filterDeliveringTimeout = function( job ) {
-  let modifiedDate = new Date(job.modified);
+  let modifiedDate = new Date(job.modified.value);
   let currentDate = new Date();
   return ((currentDate - modifiedDate) / (1000 * 60 * 60)) >= parseInt(HOURS_DELIVERING_TIMEOUT);
 };
