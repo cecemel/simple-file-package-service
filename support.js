@@ -96,8 +96,7 @@ const createZipFile = async function(name, files) {
   });
   archive.pipe(output);
   files.map( (file) => {
-    const filename = normalizeFileName(file.filename.value);
-    archive.file(fileUrlToPath(file.file.value, DATA_FOLDER), {name: filename});
+    archive.file(fileUrlToPath(file.file.value, DATA_FOLDER));
   });
   await archive.finalize();
   return pathToFileUrl(filename, TARGET_FOLDER);
